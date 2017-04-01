@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/trails"
+            android:title="Trails" />
+        <item
+            android:id="@+id/finished"
+            android:title="Finished" />
+        <item
+            android:id="@+id/achievements"
+            android:title="Achievements" />
+        <item
+            android:id="@+id/account"
+            android:title="Account" />
+        <item
+            android:id="@+id/help"
+            android:title="Help" />
+        <item
+            android:id="@+id/about"
+            android:title="About" />
+    </group>
+</menu>
