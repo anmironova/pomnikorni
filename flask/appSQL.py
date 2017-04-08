@@ -3,9 +3,9 @@ from flask_sqlalchemy import SQLAlchemy
 import postgresql
 
 app = Flask(__name__)
-db = postgresql.open('pq://postgres:ihateprojects@localhost/pomnikorni')
-#app.config['SQLALCHEMY_DATABASE_URL'] = 'postgresql://postgres:ihateprojects@localhost/pomnikorni'
-#db = SQLAlchemy(app)
+#db = postgresql.open('pq://postgres:ihateprojects@localhost/pomnikorni')
+app.config['SQLALCHEMY_DATABASE_URL'] = 'postgresql://postgres:ihateprojects@localhost/pomnikorni'
+db = SQLAlchemy(app)
 
 class User(db.Model):
 	id = db.Column(db.Integer, primary_key = True)
