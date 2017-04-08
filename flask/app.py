@@ -3,16 +3,15 @@ app = Flask(__name__)
 
 addresses = [
 {
-'lat' : 56.844494,
-'lon' : 60.653655,
+'location' : '56.844494, 60.653655',
 'name' : 'URFU'
 },
 {
-'location' : 56.840469, 60.597754,
+'location' : '56.840469, 60.597754',
 'name' : 'Theather'
 }, 
 {
-'location' : 56.837956, 60.596268,
+'location' : '56.837956, 60.596268',
 'name' : 'Square'
 }]
 
