@@ -1,7 +1,8 @@
 from flask import Flask
 from flask import jsonify
 from flask import request
-#from flask.ext.pymongo import PyMongo
+#from app import app
+
 from flask_pymongo import PyMongo
 
 app = Flask(__name__)
@@ -25,16 +26,34 @@ def get_all_places():
     output.append({'place_name' : s['place_name'], 'place_lan' : s['place_lan'], 'place_lon' : s['place_lon']})
   return jsonify({'result' : output})
 
-@app.route('/place/<string:place_name>', methods=['GET'])
-def get_one_place(place_name):
+@app.route('/place/lanlon/<string:place_name>', methods=['GET'])
+def get_one_lanlon(place_name):
   place = mongo.db.places
   output = []
   s = place.find_one({'place_name' : place_name})
   if s:
-    output = {'place_name' : s['place_name'], 'place_lan' : s['place_lan'], 'place_lon' : s['place_lon']}
- # else:0
- #   output = "No such name"
+  	output = {'lan' : s['place_lan'], 'lon' : s['place_lon']}
   return jsonify({'result' : output})
+
+@app.route('/place/alllanlon', methods=['GET'])
+def get_all_lanlon():
+  place = mongo.db.places
+  output = []
+  for s in place.find():
+    output.append({'place_lan' : s['place_lan'], 'place_lon' : s['place_lon']})
+  return jsonify({'result' : output})
+
+
+
+@app.route('/place/info/<string:place_name>', methods=['GET'])
+def get_one_info(place_name):
+  place = mongo.db.places
+  output = []
+  s = place.find_one({'place_name' : place_name})
+  if s:
+    output = {'place_name' : s['place_name'], 'info' : s['place_info']}
+  return jsonify({'result' : output})
+
 
 @app.route('/add')
 def add():
