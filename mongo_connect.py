@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 app.config['MONGO_DBNAME'] = 'heroku_5zh4h6hd'
 app.config['charset'] = 'utf8'
-app.config['MONGO_URI'] = 'mongodb://heroku_5zh4h6hd:cq4eb0novbqq50k8aeg0oee4rb@ds111461.mlab.com:11461/heroku_5zh4h6hd'
+app.config['MONGO_URI'] = 'mongodb://<dbuser>:<dbpassword>@ds111461.mlab.com:11461/heroku_5zh4h6hd'
 
 mongo = PyMongo(app)
 
